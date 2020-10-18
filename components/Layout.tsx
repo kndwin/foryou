@@ -11,7 +11,7 @@ export default function Layout ({
   children?: ReactNode
   title?: string
 }) {
-  const [session, loading ] = useSession()
+  const [session] = useSession()
 
   return (
     <div className={styles.container}>
@@ -30,8 +30,11 @@ export default function Layout ({
           ) : (
             <>
               <div>Not signed in</div>
-              <a herf={'/api/auth/signin'}
-                onClick={e => signIn}>
+              <a href={'/api/auth/signin'}
+                onClick={(e) => {
+                  e.preventDefault()
+                  signIn()
+                }}>
                 Sign in
               </a>
             </>
