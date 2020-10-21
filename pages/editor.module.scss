@@ -1,0 +1,10 @@
+@import 'styles/colors.scss';
+
+.container {
+  padding: 3em;
+}
+
+.container>h1 {
+  font-family: 'IBM Plex Mono';
+  color: $dark-blue;
+}
