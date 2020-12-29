@@ -16,6 +16,7 @@ export default function IndexPage () {
         <Link href='/editor'>
           <a>Editor</a>
         </Link>
+        <Editor/>
       </>}
     </Layout>
   )
