@@ -25,7 +25,8 @@ export default function Layout ({
           {session ? (
             <>
               <div>{session.user.name}</div>
-              <a onClick={(e) => {
+              <a href={'/api/auth/signout'}
+                onClick={(e) => {
                 e.preventDefault()
                 signOut()
               }}>Sign out</a>
