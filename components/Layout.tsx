@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 //import Link from 'next/link'
 import Head from 'next/head'
 import styles from './Layout.module.scss'
-import { signIn, useSession } from 'next-auth/client'
+import { signOut, signIn, useSession } from 'next-auth/client'
 
 export default function Layout ({ 
   children, 
@@ -24,8 +24,11 @@ export default function Layout ({
         <nav className={styles.nav}>
           {session ? (
             <>
-              <div>{session}</div>
-              <a >Sign out</a>
+              <div>{session.user.name}</div>
+              <a onClick={(e) => {
+                e.preventDefault()
+                signOut()
+              }}>Sign out</a>
             </>
           ) : (
             <>
