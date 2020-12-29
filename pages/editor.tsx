@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import SimpleMDEReact from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
-import 'github-markdown-css'
 import styles from './editor.module.scss'
+import 'github-markdown-css'
+import "easymde/dist/easymde.min.css";
 
 export default function Editor() {
 
