@@ -6,7 +6,7 @@ import { signIn, useSession } from 'next-auth/client'
 
 export default function Layout ({ 
   children, 
-  title = 'This is the default title' 
+  title = 'For you' 
 }: {
   children?: ReactNode
   title?: string
@@ -24,12 +24,12 @@ export default function Layout ({
         <nav className={styles.nav}>
           {session ? (
             <>
-              <div>Signed in</div>
-              <a >Sign in</a>
+              <div>{session}</div>
+              <a >Sign out</a>
             </>
           ) : (
             <>
-              <div>Not signed in</div>
+              <div/>
               <a href={'/api/auth/signin'}
                 onClick={(e) => {
                   e.preventDefault()
