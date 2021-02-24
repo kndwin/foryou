@@ -11,7 +11,7 @@ export default function Layout ({
 }: {
   children?: ReactNode
   title?: string,
-	editor: boolean
+	editor?: boolean
 }) {
   const [session] = useSession()
 
