@@ -1,0 +1,32 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.form {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	input {
+		font-size: 14pt;
+		padding: 1rem;
+		margin: 1rem 0;
+		border: 1px solid black;
+	}
+}
+
+.submitCancel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cancel {
+	font-size: 16pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}

@@ -1,23 +1,24 @@
-import Layout from 'components/Layout'
+import { useState } from 'react'
 import { useSession } from 'next-auth/client'
-import Editor from './editor'
-import Link from 'next/link'
+
+import  { Button, Layout, LandingPage, Editor } from 'components'
+import styles from './index.module.scss'
 
 export default function IndexPage () {
+
   const [session] = useSession()
 
+	const [hide, setHide] = useState<boolean>(false)
+	const [preview, setPreview] = useState<boolean>(false)
+
   return (
-    <Layout title="For you">
-      <h1>For you</h1>
-      {!session && <>
-        <p>An online markdown editor</p>
-      </>}
-      {session && <>
-        <Link href='/editor'>
-          <a>Editor</a>
-        </Link>
-        <Editor/>
-      </>}
+    <Layout hide={hide} 
+			preview={() => setPreview(!preview)}>
+      {!session && <LandingPage />}
+      {session && <div className={styles.container}>
+				<Editor preview={preview}/>
+			</div>
+			}
     </Layout>
   )
 }
