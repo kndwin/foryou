@@ -14,7 +14,9 @@ export default function IndexPage () {
   return (
     <Layout hide={hide} 
 			preview={() => setPreview(!preview)}>
-      {!session && <LandingPage />}
+      {!session && <div>
+				<LandingPage />
+			</div>}
       {session && <div className={styles.container}>
 				<Editor preview={preview}/>
 			</div>

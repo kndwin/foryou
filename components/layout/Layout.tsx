@@ -18,6 +18,11 @@ export default function Layout ({
 
   const [session] = useSession()
 
+	const load = () => {
+	}
+	const save = () => {
+	}
+
   return (
     <div className={hide ? 
 			`${styles.container} ${styles.editor}` 
@@ -36,6 +41,12 @@ export default function Layout ({
 						{session.user.name}
 					</div>
 					<div className={styles.buttonRight}>
+						<Button onClick={() => load()}>
+							Load
+						</Button>
+						<Button onClick={() => save()}>
+							Save
+						</Button>
 						<Button onClick={() => preview()}>
 							Preview
 						</Button>
