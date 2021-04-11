@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSession } from 'next-auth/client'
 
-import  { Button, Layout, LandingPage, Editor } from 'components'
+import { Button, Layout, LandingPage, Editor } from 'components'
 import styles from './index.module.scss'
 
 export default function IndexPage () {

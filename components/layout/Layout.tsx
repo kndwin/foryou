@@ -9,19 +9,19 @@ import { Button } from 'components'
 export default function Layout ({ 
   children, 
 	hide,
-	preview
+	preview,
+	isSignInPage
 }: {
   children?: ReactNode
 	hide?: boolean,
 	preview?: () => void,
+	isSignInPage?: boolean
 }) {
 
   const [session] = useSession()
 
-	const load = () => {
-	}
-	const save = () => {
-	}
+	const load = () => {}
+	const save = () => {}
 
   return (
     <div className={hide ? 
@@ -59,9 +59,16 @@ export default function Layout ({
 					<Link href="/">
 						<a><h1>min.md</h1></a>
 					</Link>
+					{!isSignInPage ?
 					<Button onClick={() => signIn()}>
 						Sign in
-					</Button>
+					</Button> : 
+					<Link href="/" >
+						<span className={styles.link}>
+							 Go back ↩
+						</span>
+					</Link>
+					}
 				</>)} 
       </header>
 			<main className={styles.main}>

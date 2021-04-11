@@ -1,6 +1,5 @@
-import { providers } from 'next-auth/client'
+import { providers, csrfToken, signIn } from 'next-auth/client'
 import { Providers } from 'next-auth/providers'
-import { csrfToken } from 'next-auth/client'
 import Link from 'next/link'
 
 import styles from './signin.module.scss'
@@ -14,8 +13,27 @@ export default function SignIn({
 	csrfToken: string
 }) {
   return (
-    <Layout>
+    <Layout isSignInPage={true}>
 			<div className={styles.container}>
+				<h1>Login</h1>
+				<h2>Providers</h2>
+				{Object.values(providers).map(provider => (
+						<div key={provider.name}>
+						{provider.name == "GitHub" &&
+							<Button onClick={() => signIn(provider.id)}>
+								<img className={styles.logo}
+									src="https://simpleicons.org/icons/github.svg" 
+									alt="Github logo" />
+									<br />
+									<br />
+							 {provider.name}
+							</Button>
+						}
+						</div> 
+				))}
+				<br />
+				<h4>or</h4>
+				<h2>Credentials</h2>
 				{Object.values(providers).map(provider => (
 					<div key={provider.name}>
 						{provider.name == "Credentials" &&
@@ -23,9 +41,6 @@ export default function SignIn({
 								action="/api/auth/callback/credentials"
 								className={styles.form}
 							>
-								<h1>
-									Login
-								</h1>
 								<input name="csrfToken" 
 									type="hidden" 
 									defaultValue={csrfToken}

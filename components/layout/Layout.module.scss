@@ -24,6 +24,7 @@
 	height: 120px; 
 	width: 100%; 
 	Button {
+		cursor: pointer;
 		margin-left: 1rem; 
 	}
 }
@@ -49,4 +50,12 @@
 	font-weight: bold;
 	font-size: 24pt;
 	padding: 1rem 0; 
+}
+
+.link {
+	font-size: 16pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+	cursor: pointer; 
 }
