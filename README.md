@@ -1,5 +1,5 @@
 # ✍ min.md
-a minmimum markdown editor
+a minimum markdown editor
 
 ## ⚙ stack
 - **front end**: nextjs, sass
