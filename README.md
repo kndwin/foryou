@@ -8,5 +8,5 @@ a minimum markdown editor
 - **orm**: typeorm
 - **host**: vercel, heroku
 
-## goals
+## 🎯 goals
 - 💪 build something end-to-end from scratch 
