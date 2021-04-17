@@ -1,26 +1,16 @@
-import { useState } from 'react'
+import { Layout, LandingPage, Loading } from 'components'
 import { useSession } from 'next-auth/client'
 
-import { Button, Layout, LandingPage, Editor } from 'components'
-import styles from './index.module.scss'
-
 export default function IndexPage () {
-
-  const [session] = useSession()
-
-	const [hide, setHide] = useState<boolean>(false)
-	const [preview, setPreview] = useState<boolean>(false)
-
+  const [session, loading] = useSession()
+	if (loading) {
+		return  (
+			<Loading />
+		)
+	}
   return (
-    <Layout hide={hide} 
-			preview={() => setPreview(!preview)}>
-      {!session && <div>
+    <Layout>
 				<LandingPage />
-			</div>}
-      {session && <div className={styles.container}>
-				<Editor preview={preview}/>
-			</div>
-			}
     </Layout>
   )
 }

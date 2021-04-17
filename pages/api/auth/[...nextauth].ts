@@ -54,7 +54,7 @@ export default NextAuth({
 	},
 	callbacks: {
 		async redirect(url, baseUrl) {
-			return baseUrl
+			return baseUrl + "/editor"
 		},
 	},
 	debug: true,

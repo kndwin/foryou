@@ -8,7 +8,7 @@ import { Button } from 'components'
 
 export default function Layout ({ 
   children, 
-	hide,
+	hide=false,
 	preview,
 	isSignInPage
 }: {
