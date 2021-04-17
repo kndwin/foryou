@@ -16,21 +16,30 @@ export default NextAuth({
 				}
 			},
 			async authorize( credentials ) {
-				const user = (credentials) => {
-					return { 
-						name: credentials.username
-					}
-				}
+				console.log(credentials.username)
+				let user = await fetch('http://localhost:3001/graphql', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'Accept': 'application/json',
+					},
+					body: JSON.stringify({ 
+						query: `{ getUser (name: "${credentials.username}"){ name }}`
+					})
+				})
+					.then(res => res.json())
+					.catch(error => console.error(`Error: ${error}`))
+
+				console.log(user)
 
 				if (user) {
 					return { 
-						name: "Kevin",
-						email: 'kevin@orionnt',
-						image: 'https://avatars.githubusercontent.com/u/22161029?v=4'
+						name: user.name,
 					}
 				} else {
 					return null
 				}
+
 			}
 		}),
 		Providers.GitHub({
