@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/client'
 import {  Layout, LandingPage, 
 	Editor, Loading } 
 from 'components'
-import styles from './index.module.scss'
+import styles from 'styles/pages/editor.module.scss'
 
 export default function IndexPage () {
 

@@ -2,7 +2,7 @@ import { providers, csrfToken, signIn } from 'next-auth/client'
 import { Providers } from 'next-auth/providers'
 import Link from 'next/link'
 
-import styles from './signin.module.scss'
+import styles from 'styles/pages/auth/signin.module.scss'
 import { Button, Layout } from 'components'
 
 export default function SignIn({ 
@@ -53,13 +53,13 @@ export default function SignIn({
 									type="password"
 									placeholder="********"
 								/>
-								<div className={styles.submitCancel}>
+								<div className={styles.submitSignUp}>
 									<Button type="submit">
 										Sign in
 									</Button>
-									<Link href="/">
-										<a className={styles.cancel}>
-											Cancel
+									<Link href="/createUser">
+										<a className={styles.signUp}>
+											Sign up
 										</a>
 									</Link>
 								</div>

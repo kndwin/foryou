@@ -16,8 +16,8 @@ export default NextAuth({
 				}
 			},
 			async authorize( credentials ) {
-				console.log(credentials.username)
-				let user = await fetch('http://localhost:3001/graphql', {
+
+				let query = await fetch('http://localhost:3001/graphql', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -30,11 +30,11 @@ export default NextAuth({
 					.then(res => res.json())
 					.catch(error => console.error(`Error: ${error}`))
 
-				console.log(user)
+				let userFound = query.data.getUser.name
 
-				if (user) {
+				if (userFound) {
 					return { 
-						name: user.name,
+						name: userFound
 					}
 				} else {
 					return null
