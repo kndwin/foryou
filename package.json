@@ -13,6 +13,7 @@
     "fontsource-ibm-plex-mono": "^3.0.9",
     "fontsource-source-sans-pro": "^3.0.9",
     "github-markdown-css": "^4.0.0",
+    "graphql": "^15.5.1",
     "graphql-request": "^3.4.0",
     "highlight.js": "^10.6.0",
     "micromark": "^2.10.1",
