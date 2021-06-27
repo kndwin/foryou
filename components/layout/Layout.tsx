@@ -18,10 +18,14 @@ export default function Layout ({
 	isSignInPage?: boolean
 }) {
 
-  const [session] = useSession()
+  const [session, loading] = useSession()
 
 	const load = () => {}
 	const save = () => {}
+
+	if (loading) {
+		return null
+	}
 
   return (
     <div className={hide ? 
@@ -39,20 +43,6 @@ export default function Layout ({
 				{session && !hide && (<>
 					<div className={styles.username}>
 						{session.user.name}
-					</div>
-					<div className={styles.buttonRight}>
-						<Button onClick={() => load()}>
-							Load
-						</Button>
-						<Button onClick={() => save()}>
-							Save
-						</Button>
-						<Button onClick={() => preview()}>
-							Preview
-						</Button>
-						<Button onClick={() => signOut()}>
-							Sign Out
-						</Button>
 					</div>
 				</>)} 
 				{!session && !hide && ( <>

@@ -1,10 +1,11 @@
 import styles from './LandingPage.module.scss'
+
 export default function LandingPage() {
 	return (
 		<>
-			<h1>📄 minimal markdown editor</h1>
+			<h1>minimal markdown editor</h1>
 			<p>
-				✍ simple and distraction-free. 
+				📄 simple and distraction-free. 
 				<br />
 				🔒 secured with authentication.
 				<br />

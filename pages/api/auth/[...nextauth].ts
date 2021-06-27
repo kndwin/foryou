@@ -16,15 +16,18 @@ export default NextAuth({
 				}
 			},
 			async authorize( credentials ) {
+				let graphqlParamaters = `
+					{ getUser (name: "${credentials.username}"){ name }}
+				`
 
-				let query = await fetch('http://localhost:3001/graphql', {
+				let query = await fetch('http://minmd.herokuapp.com/graphql', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
 						'Accept': 'application/json',
 					},
 					body: JSON.stringify({ 
-						query: `{ getUser (name: "${credentials.username}"){ name }}`
+						query: graphqlParamaters
 					})
 				})
 					.then(res => res.json())
